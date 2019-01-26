@@ -5,3 +5,5 @@ export const fetchPizzaList = () => {
       throw new Error("Couldn't fetch pizzas");
     });
 };
+
+export default fetchPizzaList;

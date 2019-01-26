@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import fetchPizzaList from "./services/fetchPizza";
+import FilterForm from "./components/FilterForm";
 class App extends Component {
   state = {
     load: false,
@@ -16,7 +17,11 @@ class App extends Component {
     });
   }
   render() {
-    return <div>Hello</div>;
+    return (
+      <div>
+        <FilterForm />
+      </div>
+    );
   }
 }
 
