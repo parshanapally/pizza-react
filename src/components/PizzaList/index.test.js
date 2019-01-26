@@ -1,7 +1,6 @@
 import React from "react";
 import { expect } from "code";
 import { shallow } from "enzyme";
-import sinon from "sinon";
 import PizzaList from "./index";
 
 describe("Given PizzaList", () => {

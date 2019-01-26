@@ -13,7 +13,7 @@ class App extends Component {
       this.setState({
         pizzas: res.pizzas,
         filteredPizzas: res.pizzas,
-        isLoad: true
+        load: true
       });
     });
   }
