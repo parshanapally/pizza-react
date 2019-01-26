@@ -1,16 +1,31 @@
 import React from "react";
 import { expect } from "code";
 import { shallow } from "enzyme";
-
-import FilterForm from ".";
+import sinon from "sinon";
+import FilterForm from "./index";
 
 describe("Given App", () => {
-  let component;
+  let component, handleFilterSpy, handleSortSpy;
 
   beforeEach(() => {
-    component = shallow(<FilterForm />);
+    component = renderComponent();
   });
 
+  afterEach(() => {
+    sinon.restore();
+  });
+
+  function requiredProps(overrides = {}) {
+    return {
+      handleFilter: handleFilterSpy,
+      handleSort: handleSortSpy,
+      ...overrides
+    };
+  }
+
+  function renderComponent(props = requiredProps()) {
+    return shallow(<FilterForm {...props} />);
+  }
   it("should contain <App />", () => {
     expect(component).to.exist();
   });
