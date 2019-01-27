@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import fetchPizzaList from "./services/fetchPizza";
 import FilterForm from "./components/FilterForm";
 import PizzaList from "./components/PizzaList";
+import "./App.css";
+import pizza from "./img/pizza.png";
+
 class App extends Component {
   state = {
     load: false,
@@ -37,6 +40,12 @@ class App extends Component {
   render() {
     return (
       <div>
+        <h2>
+          Daily Dose of
+          <span className="pizza-container">
+            <img className="pizza-image" src={pizza} />
+          </span>
+        </h2>
         <FilterForm
           handleSort={this.handleSort}
           handleFilter={this.handleFilter}

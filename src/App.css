@@ -1,0 +1,22 @@
+body {
+  padding: 0;
+  background-color: #963108;
+  color: #361203;
+  display: flex;
+  justify-content: center;
+}
+
+h2 {
+  font-size: 40px;
+  color: #d96e5a;
+  text-shadow: 2px 2px #361203;
+}
+
+.pizza-image {
+  width: 60px;
+  height: 60px;
+}
+
+.pizza-container {
+  padding: 10px;
+}
