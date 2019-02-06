@@ -21,13 +21,13 @@ describe("actions", () => {
     sinon.restore();
   });
 
-  it("should fire the fetchEmployees method", () => {
+  it("should fire the fetchPizzas method", () => {
     const store = mockStore({});
     const pizzas = {};
 
     fetchPizzaStub.resolves(pizzas);
 
-    return store.dispatch(actions.fetchEmployees()).then(() => {
+    return store.dispatch(actions.fetchPizzas()).then(() => {
       const action = store.getActions()[0];
       expect(action).to.equal({ type: types.FETCH_PIZZAS, pizzas });
     });

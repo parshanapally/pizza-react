@@ -2,13 +2,13 @@ import * as types from "../actions/actions-list";
 
 const defaultState = {};
 
-const fetchEmployees = (state, action) => {
+const fetchPizzas = (state, action) => {
   return { ...state, ...action.pizzas };
 };
 
 export default function(state = defaultState, action) {
   const actionsHandler = {
-    [types.FETCH_PIZZAS]: fetchEmployees
+    [types.FETCH_PIZZAS]: fetchPizzas
   };
 
   const reducer = actionsHandler[action.type];

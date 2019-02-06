@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import fetchPizzaList from "./services/fetchPizza";
 import FilterForm from "./components/FilterForm";
 import PizzaList from "./components/PizzaList";
 import "./App.css";
@@ -7,24 +6,14 @@ import pizza from "./img/pizza.png";
 import { connect } from "react-redux";
 import { fetchPizzas } from "./actions/fetchPizzas";
 
-class App extends Component {
+export class App extends Component {
   state = {
-    load: false,
-    pizzas: [],
-    filteredPizzas: []
+    load: false
   };
-  // componentDidMount() {
-  //   fetchPizzaList().then(res => {
-  //     this.setState({
-  //       pizzas: res.pizzas,
-  //       filteredPizzas: res.pizzas,
-  //       load: true
-  //     });
-  //   });
-  // }
 
   async componentDidMount() {
     await this.props.fetchPizzas();
+    console.log(this.props.fetchPizzas());
   }
 
   handleSort = () => {
@@ -59,15 +48,17 @@ class App extends Component {
           handleSort={this.handleSort}
           handleFilter={this.handleFilter}
         />
-        <PizzaList pizzas={this.state.filteredPizzas} />
+        <PizzaList pizzas={this.props.pizzas} />
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return { pizzas: state.pizzas };
+};
 
 export const ConnectedApp = connect(
-  null,
+  mapStateToProps,
   { fetchPizzas }
 )(App);
