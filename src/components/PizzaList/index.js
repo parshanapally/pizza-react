@@ -23,7 +23,7 @@ const PizzaList = props => {
 };
 
 PizzaList.propTypes = {
-  repos: PropTypes.oneOfType([
+  pizza: PropTypes.oneOfType([
     PropTypes.array.isRequired,
     PropTypes.object.isRequired
   ])

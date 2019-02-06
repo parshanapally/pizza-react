@@ -5,6 +5,7 @@ import "./App.css";
 import pizza from "./img/pizza.png";
 import { connect } from "react-redux";
 import { fetchPizzas } from "./actions/fetchPizzas";
+import { handleFilter, handleSort } from "./actions/filters";
 
 export class App extends Component {
   state = {
@@ -17,23 +18,25 @@ export class App extends Component {
   }
 
   handleSort = () => {
-    const arrPizzas = this.state.filteredPizzas;
-    this.setState({
-      filteredPizzas: [...arrPizzas].sort((a, b) =>
-        a.toLowerCase() > b.toLowerCase() ? 1 : -1
-      )
-    });
+    // const arrPizzas = this.state.filteredPizzas;
+    // this.setState({
+    //   filteredPizzas: [...arrPizzas].sort((a, b) =>
+    //     a.toLowerCase() > b.toLowerCase() ? 1 : -1
+    //   )
+    // });
+    this.props.handleSort("pizzas");
   };
 
   handleFilter = e => {
-    const arrPizzas = this.state.pizzas;
+    // const arrPizzas = this.state.pizzas;
 
-    const newChangedArr = arrPizzas.filter(function(pizza) {
-      return (
-        pizza.toLowerCase().search(e.currentTarget.value.toLowerCase()) !== -1
-      );
-    });
-    this.setState({ filteredPizzas: newChangedArr });
+    // const newChangedArr = arrPizzas.filter(function(pizza) {
+    //   return (
+    //     pizza.toLowerCase().search(e.currentTarget.value.toLowerCase()) !== -1
+    //   );
+    // });
+    // this.setState({ filteredPizzas: newChangedArr });
+    this.props.handleFilter("pizzas");
   };
   render() {
     return (
@@ -60,5 +63,5 @@ const mapStateToProps = state => {
 
 export const ConnectedApp = connect(
   mapStateToProps,
-  { fetchPizzas }
+  { fetchPizzas, handleFilter, handleSort }
 )(App);
