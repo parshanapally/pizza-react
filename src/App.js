@@ -5,6 +5,7 @@ import PizzaList from "./components/PizzaList";
 import "./App.css";
 import pizza from "./img/pizza.png";
 import { connect } from "react-redux";
+import { fetchPizzas } from "./actions/fetchPizzas";
 
 class App extends Component {
   state = {
@@ -12,14 +13,18 @@ class App extends Component {
     pizzas: [],
     filteredPizzas: []
   };
-  componentDidMount() {
-    fetchPizzaList().then(res => {
-      this.setState({
-        pizzas: res.pizzas,
-        filteredPizzas: res.pizzas,
-        load: true
-      });
-    });
+  // componentDidMount() {
+  //   fetchPizzaList().then(res => {
+  //     this.setState({
+  //       pizzas: res.pizzas,
+  //       filteredPizzas: res.pizzas,
+  //       load: true
+  //     });
+  //   });
+  // }
+
+  async componentDidMount() {
+    await this.props.fetchPizzas();
   }
 
   handleSort = () => {
@@ -64,5 +69,5 @@ export default App;
 
 export const ConnectedApp = connect(
   null,
-  {}
+  { fetchPizzas }
 )(App);

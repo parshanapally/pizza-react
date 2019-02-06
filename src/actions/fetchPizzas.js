@@ -5,6 +5,6 @@ export const fetchPizzas = () => {
   return async dispatch => {
     const pizzas = await fetchPizzaList();
 
-    dispatch({ type: types.FETCH_EMPLOYEES, pizzas });
+    dispatch({ type: types.FETCH_PIZZAS, pizzas });
   };
 };

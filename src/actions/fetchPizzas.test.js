@@ -29,7 +29,7 @@ describe("actions", () => {
 
     return store.dispatch(actions.fetchEmployees()).then(() => {
       const action = store.getActions()[0];
-      expect(action).to.equal({ type: types.FETCH_EMPLOYEES, pizzas });
+      expect(action).to.equal({ type: types.FETCH_PIZZAS, pizzas });
     });
   });
 });
