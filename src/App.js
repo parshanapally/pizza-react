@@ -4,6 +4,7 @@ import FilterForm from "./components/FilterForm";
 import PizzaList from "./components/PizzaList";
 import "./App.css";
 import pizza from "./img/pizza.png";
+import { connect } from "react-redux";
 
 class App extends Component {
   state = {
@@ -60,3 +61,8 @@ class App extends Component {
 }
 
 export default App;
+
+export const ConnectedApp = connect(
+  null,
+  {}
+)(App);
