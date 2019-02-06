@@ -32,9 +32,12 @@ class App extends Component {
 
   handleFilter = e => {
     const arrPizzas = this.state.pizzas;
-    const newChangedArr = arrPizzas.filter(pizza =>
-      pizza.toLowerCase().match(e.currentTarget.value)
-    );
+
+    const newChangedArr = arrPizzas.filter(function(pizza) {
+      return (
+        pizza.toLowerCase().search(e.currentTarget.value.toLowerCase()) !== -1
+      );
+    });
     this.setState({ filteredPizzas: newChangedArr });
   };
   render() {
@@ -43,7 +46,7 @@ class App extends Component {
         <h2>
           Daily Dose of
           <span className="pizza-container">
-            <img className="pizza-image" src={pizza} />
+            <img className="pizza-image" src={pizza} alt="pizza" />
           </span>
         </h2>
         <FilterForm
