@@ -8,19 +8,19 @@ self.__precacheManifest = [
     "url": "/pizza-react/static/js/runtime~main.f56d410e.js"
   },
   {
-    "revision": "a3ac120f14bc618a6157",
-    "url": "/pizza-react/static/js/main.a3ac120f.chunk.js"
+    "revision": "3501afd788c8f0f99ef9",
+    "url": "/pizza-react/static/js/main.3501afd7.chunk.js"
   },
   {
     "revision": "042277b75a64f3f6be61",
     "url": "/pizza-react/static/js/1.042277b7.chunk.js"
   },
   {
-    "revision": "a3ac120f14bc618a6157",
-    "url": "/pizza-react/static/css/main.3b6f2971.chunk.css"
+    "revision": "3501afd788c8f0f99ef9",
+    "url": "/pizza-react/static/css/main.9a572d85.chunk.css"
   },
   {
-    "revision": "eb1ae1779a72d485a887d801bb7ad338",
+    "revision": "28f270c822ea72a6b34715fd48db1022",
     "url": "/pizza-react/index.html"
   }
 ];
