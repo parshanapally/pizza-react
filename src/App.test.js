@@ -47,7 +47,7 @@ describe("Given App", () => {
     expect(component.find("img.pizza-image")).to.have.length(1);
   });
   it("should contain <PizzaList />", () => {
-    const PizzaList = component.find("PizzaList");
+    const PizzaList = component.find("Connect(PizzaList)");
     expect(PizzaList).to.have.length(1);
   });
 

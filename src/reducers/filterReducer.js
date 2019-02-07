@@ -29,6 +29,7 @@ const handleShow = (state = defaultState, action) => {
   );
   return { ...state, [action.pizzas]: updatedModal };
 };
+
 export default function(state = defaultState, action) {
   const actionsHandler = {
     [types.HANDLE_FILTER_PIZZAS]: handleFilter,

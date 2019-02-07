@@ -1,9 +1,9 @@
 import * as types from "../actions/actions-list";
 
-const defaultState = {};
+const defaultState = [];
 
 const fetchPizzas = (state, action) => {
-  return { ...state, ...action.pizzas };
+  return [...state, ...action.pizzas];
 };
 
 export default function(state = defaultState, action) {

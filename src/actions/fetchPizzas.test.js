@@ -23,7 +23,7 @@ describe("actions", () => {
 
   it("should fire the fetchPizzas method", () => {
     const store = mockStore({});
-    const pizzas = {};
+    const pizzas = [];
 
     fetchPizzaStub.resolves(pizzas);
 
