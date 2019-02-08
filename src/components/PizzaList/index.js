@@ -1,39 +1,32 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import "./index.css";
-import { connect } from "react-redux";
 
-export class PizzaList extends Component {
-  renderList = () => {
-    const pizzas = this.props.pizzas;
-    console.log(this.props);
-    if (pizzas && pizzas.length) {
-      console.log(pizzas);
-      return pizzas.map(pizza => {
-        return (
-          <li className="pizza-list-item" key={pizza}>
-            {pizza}
-          </li>
-        );
-      });
-    } else {
+function renderList(pizzas) {
+  if (pizzas && pizzas.length) {
+    return pizzas.map(pizza => {
       return (
-        <p>There is not enough pizzas for you today! Try again next time!</p>
+        <li className="pizza-list-item" key={pizza}>
+          {pizza}
+        </li>
       );
-    }
-  };
-  render() {
-    console.log(this.props);
-    return <ul className="pizza-list">{this.renderList()}</ul>;
+    });
+  } else {
+    return (
+      <p>There is not enough pizzas for you today! Try again next time!</p>
+    );
   }
 }
 
+const PizzaList = props => {
+  return <ul className="pizza-list">{renderList(props.pizzas)}</ul>;
+};
+
 PizzaList.propTypes = {
-  pizzas: [PropTypes.array].isRequired
+  repos: PropTypes.oneOfType([
+    PropTypes.array.isRequired,
+    PropTypes.object.isRequired
+  ])
 };
 
-const mapStateToProps = state => {
-  return { pizzas: state.pizzas };
-};
-
-export const ConnectedPizzaList = connect(mapStateToProps)(PizzaList);
+export default PizzaList;

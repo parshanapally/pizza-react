@@ -15,33 +15,33 @@ describe("Given PizzaList", () => {
     expect(component.find("ul.pizza-list")).to.have.length(1);
   });
 
-  describe("When the list is empty", () => {
-    it("should render no pizzaItems", () => {
-      const pizzas = [];
-      const component = renderComponent(pizzas.length);
+  // describe("When the list is empty", () => {
+  //   it("should render no pizzaItems", () => {
+  //     const pizzas = [];
+  //     const component = renderComponent(pizzas.length);
 
-      expect(component.find("li").length).to.equal(0);
-    });
-  });
+  //     expect(component.find("li").length).to.equal(0);
+  //   });
+  // });
 
-  describe("When the list has pizzas", () => {
-    it("should render pizzas", () => {
-      const chance = new Chance();
-      const pizzas = [
-        chance.string(),
-        chance.string(),
-        chance.string(),
-        chance.string(),
-        chance.string(),
-        chance.string(),
-        chance.string(),
-        chance.string(),
-        chance.string()
-      ];
-      const component = renderComponent(pizzas.length);
-      expect(component.find("li").length).to.equal(9);
-    });
-  });
+  // describe("When the list has pizzas", () => {
+  //   it("should render pizzas", () => {
+  //     const chance = new Chance();
+  //     const pizzas = [
+  //       chance.string(),
+  //       chance.string(),
+  //       chance.string(),
+  //       chance.string(),
+  //       chance.string(),
+  //       chance.string(),
+  //       chance.string(),
+  //       chance.string(),
+  //       chance.string()
+  //     ];
+  //     const component = renderComponent(pizzas.length);
+  //     expect(component.find("li").length).to.equal(9);
+  //   });
+  // });
 
   describe("When pizzas are not a list", () => {
     it("should display an error", () => {

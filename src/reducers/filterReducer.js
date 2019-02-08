@@ -14,12 +14,16 @@ const defaultState = {
   ]
 };
 
-const handleFilter = (state = defaultState, action) => {
-  const updatedModal = state.filter(pizza => {
+const handleFilter = (state, action) => {
+  const pizzas = this.props.pizzas;
+  const updatedModal = pizzas.filter(pizza => {
+    console.log(pizza);
     return (
       pizza.toLowerCase().search(state.currentTarget.value.toLowerCase()) !== -1
     );
   });
+  console.log(...state);
+
   return { ...state, [action.pizzas]: updatedModal };
 };
 
