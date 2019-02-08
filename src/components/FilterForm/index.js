@@ -2,8 +2,6 @@ import React from "react";
 import "./index.css";
 
 const FilterForm = props => {
-  console.log(props);
-
   return (
     <div className="filter-form">
       <input
