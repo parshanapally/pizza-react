@@ -8,12 +8,15 @@ import { fetchPizzas } from "./actions/fetchPizzas";
 
 export class App extends Component {
   state = {
-    load: false,
     filteredpizzas: []
   };
 
   async componentDidMount() {
-    await this.props.fetchPizzas();
+    await this.props.fetchPizzas().then(res => {
+      this.setState({
+        filteredpizzas: this.props.pizzas
+      });
+    });
   }
 
   handleSort = () => {
@@ -48,7 +51,6 @@ export class App extends Component {
         <FilterForm
           handleSort={this.handleSort}
           handleFilter={this.handleFilter}
-          pizzas={this.state.filteredpizzas}
         />
         <PizzaList pizzas={this.state.filteredpizzas} />
       </div>

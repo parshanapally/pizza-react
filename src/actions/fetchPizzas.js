@@ -8,3 +8,5 @@ export const fetchPizzas = () => {
     dispatch({ type: types.FETCH_PIZZAS, pizzas });
   };
 };
+
+export const data = {};

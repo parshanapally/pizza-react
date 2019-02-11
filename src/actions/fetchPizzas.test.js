@@ -5,7 +5,7 @@ import sinon from "sinon";
 import * as types from "./actions-list";
 import * as actions from "./fetchPizzas";
 
-import * as fetchPizzas from "../services/fetchPizza";
+import * as pizzaActions from "../services/fetchPizza";
 
 describe("actions", () => {
   const middlewares = [thunk];
@@ -14,7 +14,7 @@ describe("actions", () => {
   let fetchPizzaStub;
 
   beforeEach(() => {
-    fetchPizzaStub = sinon.stub(fetchPizzas, "fetchPizzaList");
+    fetchPizzaStub = sinon.stub(pizzaActions, "fetchPizzas");
   });
 
   afterEach(() => {
@@ -27,7 +27,8 @@ describe("actions", () => {
 
     fetchPizzaStub.resolves(pizzas);
 
-    return store.dispatch(actions.fetchPizzas()).then(() => {
+    return store.dispatch(actions.fetchPizzas()).then(data => {
+      console.log("the data", data);
       const action = store.getActions()[0];
       expect(action).to.equal({ type: types.FETCH_PIZZAS, pizzas });
     });

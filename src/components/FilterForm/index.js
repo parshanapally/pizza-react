@@ -4,17 +4,9 @@ import "./index.css";
 const FilterForm = props => {
   return (
     <div className="filter-form">
-      <input
-        className="filter-input"
-        onChange={props.handleFilter}
-        pizzas={props.pizzas}
-      />
+      <input className="filter-input" onChange={props.handleFilter} />
 
-      <button
-        className="sort-button"
-        onClick={props.handleSort}
-        pizzas={props.pizzas}
-      >
+      <button className="sort-button" onClick={props.handleSort}>
         Submit
       </button>
     </div>
